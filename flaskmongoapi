@@ -4,7 +4,7 @@ from flask.ext.pymongo import PyMongo, pymongo
 app = Flask(__name__)
 
 app.config['MONGO_DBNAME'] = 'connect_to_mongo'
-app.config['MONGO_URI'] = 'mongodb://gf1721:password@ds135916.mlab.com:35916/connect_to_mongo'
+app.config['MONGO_URI'] = 'mongodb://gf1721:Garden12@ds135916.mlab.com:35916/connect_to_mongo'
 
 mongo = PyMongo(app)
 
@@ -22,15 +22,10 @@ def index():
 @app.route('/add')
 def add():
     number = mongo.db.numbers
-    number.insert({'name':'one', 'number':1})
-    number.insert({'name':'two', 'number':2})
-    number.insert({'name':'three', 'number':3})
-    number.insert({'name':'four', 'number':4})
-    number.insert({'name':'five', 'number':5})
-    number.insert({'name':'six', 'number':6})
-    number.insert({'name':'seven', 'number':7})
-    number.insert({'name':'eight', 'number':8})
-    number.insert({'name':'nine', 'number':9})
+    number.insert({'name':'Flask', 'language':'Python'})
+    number.insert({'name':'Lavarel', 'language':'Ruby'})
+    number.insert({'name':'Express', 'language':'JS'})
+    number.insert({'name':'Rails', 'language':'Ruby'})
     
     return 'Added numbers'
     
