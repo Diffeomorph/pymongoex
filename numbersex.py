@@ -10,12 +10,12 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    people = mongo.db.people
-    results = people.find().sort('name', pymongo.ASCENDING).limit(1)
+    numbers = mongo.db.numbers
+    results = numbers.find({'number': {'$lt':8}})
     
     output = ''
     for r in results:
-        output += r['name'] + '<br>'
+        output += r['name'] + ' - ' + str(r['number']) + '<br>'
     
     return output
 
@@ -32,7 +32,7 @@ def add():
     number.insert({'name':'eight', 'number':8})
     number.insert({'name':'nine', 'number':9})
     
-    return 'Added number'
+    return 'Added numbers'
     
     
 if __name__ == '__main__':
